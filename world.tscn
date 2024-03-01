@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://b858xolsk1i6f"]
+
+[ext_resource type="Texture2D" uid="uid://mv7vexxujuto" path="res://Assets/a4a125b0-cd91-4cc5-8e2a-a23bb225a56e.webp" id="1_n4c0u"]
+[ext_resource type="Texture2D" uid="uid://263fdr8xgmeg" path="res://Assets/Solid_green.svg.png" id="2_3epgy"]
+[ext_resource type="Texture2D" uid="uid://dqrbu24yuf3yf" path="res://Assets/000080_Navy_Blue_Square.svg.png" id="3_13ngy"]
+[ext_resource type="Script" path="res://TileMap.gd" id="4_tgpf2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_by66s"]
+resource_name = "Ground"
+texture = ExtResource("2_3epgy")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7hcos"]
+resource_name = "Selected"
+texture = ExtResource("3_13ngy")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_w7hw7"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_by66s")
+sources/1 = SubResource("TileSetAtlasSource_7hcos")
+
+[node name="world" type="Node2D"]
+
+[node name="E6970b26-bd62-4Bb4-8b27-db9Cb1Ceebc8" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(572, 129)
+scale = Vector2(1.12109, 1.12109)
+texture = ExtResource("1_n4c0u")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_w7hw7")
+rendering_quadrant_size = 128
+format = 2
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("4_tgpf2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)

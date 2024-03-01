@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://furjqaauw1a8"]
+
+[ext_resource type="Texture2D" uid="uid://btdik1dybs1ga" path="res://Assets/Warrior.jpg" id="1_5fmto"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pvco"]
+size = Vector2(128, 128.25)
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.729412, 0.517647, 1)
+self_modulate = Color(0.796078, 0.815686, 0.807843, 1)
+position = Vector2(0.5, 0.5)
+scale = Vector2(0.284141, 0.278017)
+texture = ExtResource("1_5fmto")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.125)
+shape = SubResource("RectangleShape2D_4pvco")
