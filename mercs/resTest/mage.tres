@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Merc" load_steps=2 format=3 uid="uid://qy8jwr875n01"]
+
+[ext_resource type="Script" path="res://mercs/resTest/mercBase.gd" id="1_2tmwj"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_2tmwj")
+name = "Mage"
+pAttack = 5.0
+mAttack = 5.0
+health = 60
+mana = 120
+pDefense = 40.0
+mDefense = 40.0
+ActionPoints = 50.0
+ActionPointIncrement = 35.0
+experiencePoints = 0.0

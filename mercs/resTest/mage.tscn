@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmgbhffvhevw6"]
+
+[ext_resource type="Script" path="res://mercs/resTest/mage.gd" id="1_b2sb0"]
+[ext_resource type="Resource" uid="uid://qy8jwr875n01" path="res://mercs/resTest/mage.tres" id="2_4ypgy"]
+
+[node name="Mage" type="Node2D"]
+script = ExtResource("1_b2sb0")
+stats = ExtResource("2_4ypgy")

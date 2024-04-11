@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhot1ihvgdsb"]
 
 [ext_resource type="Script" path="res://mercs/archer.gd" id="1_mjiky"]
-[ext_resource type="Texture2D" uid="uid://uou5r0ppdwnk" path="res://Assets/Archer.jpg" id="1_wqhd0"]
+[ext_resource type="Texture2D" uid="uid://uou5r0ppdwnk" path="res://Assets/AI Pics/Archer.jpg" id="1_wqhd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vakaw"]
 size = Vector2(32, 32)

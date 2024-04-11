@@ -1,0 +1,326 @@
+[gd_scene load_steps=12 format=3 uid="uid://bw8jyavp57w6q"]
+
+[ext_resource type="Texture2D" uid="uid://bjhd0575w6t25" path="res://Assets/AI Pics/bgstretch.jpg" id="1_0wp5s"]
+[ext_resource type="AudioStream" uid="uid://ceycojvqoln84" path="res://Assets/Sound/Champion's_Pride.mp3" id="1_gvaev"]
+[ext_resource type="Script" path="res://MainMenu/Start.gd" id="1_wuw07"]
+[ext_resource type="Script" path="res://MainMenu/Options.gd" id="2_tod2k"]
+[ext_resource type="Script" path="res://MainMenu/AudioStreamPlayer.gd" id="2_vgu0l"]
+[ext_resource type="Script" path="res://MainMenu/Quit.gd" id="3_yqste"]
+[ext_resource type="Script" path="res://MainMenu/Video.gd" id="4_rxnfo"]
+[ext_resource type="Script" path="res://MainMenu/Back.gd" id="5_jyahn"]
+[ext_resource type="Script" path="res://MainMenu/Audio.gd" id="6_bqln2"]
+[ext_resource type="PackedScene" uid="uid://d4ao4g1y2hwn7" path="res://MainMenu/action_button.tscn" id="7_arjjm"]
+[ext_resource type="Texture2D" uid="uid://deueyujnwfr8m" path="res://Assets/AI Pics/DALL·E 2024-02-24 11.09.26 - Design a logo for Heroes of Godot, a turn-based MMORPG created with the Godot Engine. The logo should incorporate fantasy and adventure themes, refl.png" id="8_nsglr"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Music" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/Music"]
+stream = ExtResource("1_gvaev")
+volume_db = 1.0
+bus = &"Music"
+script = ExtResource("2_vgu0l")
+
+[node name="Background" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="BGStretch" type="Sprite2D" parent="UI/Background"]
+position = Vector2(571, 327.5)
+scale = Vector2(1.17773, 0.682617)
+texture = ExtResource("1_0wp5s")
+
+[node name="Background" type="Sprite2D" parent="UI/Background"]
+position = Vector2(575, 327)
+scale = Vector2(0.617188, 0.617188)
+texture = ExtResource("8_nsglr")
+
+[node name="MainMenu" type="VBoxContainer" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -50.5
+offset_right = 35.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Start" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+text = "Start"
+script = ExtResource("1_wuw07")
+
+[node name="Options" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+text = "Options"
+script = ExtResource("2_tod2k")
+
+[node name="Quit" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("3_yqste")
+
+[node name="Settings" type="TabContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="Video" type="TabBar" parent="UI/Settings"]
+layout_mode = 2
+script = ExtResource("4_rxnfo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Video"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/Video/HBoxContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="Label" parent="UI/Settings/Video/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="Borderless" type="Label" parent="UI/Settings/Video/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Borderless"
+
+[node name="Vsync" type="Label" parent="UI/Settings/Video/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Vsync"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/Video/HBoxContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="CheckBox" parent="UI/Settings/Video/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Borderless" type="CheckBox" parent="UI/Settings/Video/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Vsync" type="OptionButton" parent="UI/Settings/Video/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 4
+selected = 1
+popup/item_0/text = "disabled"
+popup/item_0/id = 0
+popup/item_1/text = "enabled"
+popup/item_1/id = 1
+popup/item_2/text = "Mailbox"
+popup/item_2/id = 2
+popup/item_3/text = "adaptive"
+popup/item_3/id = 3
+
+[node name="Back" type="Button" parent="UI/Settings/Video"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+script = ExtResource("5_jyahn")
+
+[node name="Audio" type="TabBar" parent="UI/Settings"]
+visible = false
+layout_mode = 2
+script = ExtResource("6_bqln2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -38.5
+offset_right = 29.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/Audio/HBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master"
+
+[node name="Music" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="SFX" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/Audio/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Master" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 2
+max_value = 1.0
+step = 0.05
+
+[node name="Music" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 2
+max_value = 1.0
+step = 0.05
+
+[node name="SFX" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 2
+max_value = 1.0
+step = 0.05
+
+[node name="Back" type="Button" parent="UI/Settings/Audio"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+script = ExtResource("5_jyahn")
+
+[node name="Controls" type="TabBar" parent="UI/Settings"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -52.0
+offset_right = 24.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/Controls/HBoxContainer"]
+layout_mode = 2
+
+[node name="Up" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Up"
+
+[node name="Down" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Down"
+
+[node name="Left" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Left"
+
+[node name="Right" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Right"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/Controls/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ActionButton" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_arjjm")]
+layout_mode = 2
+size_flags_vertical = 7
+
+[node name="ActionButton2" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_arjjm")]
+layout_mode = 2
+size_flags_vertical = 7
+action = "ui_down"
+
+[node name="ActionButton3" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_arjjm")]
+layout_mode = 2
+size_flags_vertical = 7
+action = "ui_left"
+
+[node name="ActionButton4" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_arjjm")]
+layout_mode = 2
+size_flags_vertical = 7
+action = "ui_right"
+
+[node name="Back" type="Button" parent="UI/Settings/Controls"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+script = ExtResource("5_jyahn")
+
+[connection signal="pressed" from="UI/MainMenu/Start" to="UI/MainMenu/Start" method="_on_pressed"]
+[connection signal="pressed" from="UI/MainMenu/Options" to="UI/MainMenu/Options" method="_on_pressed"]
+[connection signal="pressed" from="UI/MainMenu/Quit" to="UI/MainMenu/Quit" method="_on_pressed"]
+[connection signal="toggled" from="UI/Settings/Video/HBoxContainer/VBoxContainer2/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="UI/Settings/Video/HBoxContainer/VBoxContainer2/Borderless" to="UI/Settings/Video" method="_on_borderless_toggled"]
+[connection signal="item_selected" from="UI/Settings/Video/HBoxContainer/VBoxContainer2/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]
+[connection signal="pressed" from="UI/Settings/Video/Back" to="UI/Settings/Video/Back" method="_on_pressed"]
+[connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
+[connection signal="pressed" from="UI/Settings/Audio/Back" to="UI/Settings/Audio/Back" method="_on_pressed"]
+[connection signal="pressed" from="UI/Settings/Controls/Back" to="UI/Settings/Controls/Back" method="_on_pressed"]

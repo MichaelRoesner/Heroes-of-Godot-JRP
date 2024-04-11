@@ -1,0 +1,163 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr5xx1udb4ni3"]
+
+[ext_resource type="Script" path="res://Scripts/inventory_slot.gd" id="1_c2o1u"]
+[ext_resource type="Texture2D" uid="uid://bc82p4b4w37m0" path="res://Assets/Icons/icon5.png" id="2_fe4pm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5ack"]
+
+[node name="Inventory_Slot" type="Control"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -992.0
+offset_bottom = -488.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c2o1u")
+
+[node name="OuterBoarder" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.0117647, 0.0352941, 1)
+
+[node name="InnerBoarder" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -70.0
+offset_right = 70.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.611765, 0, 0.168627, 1)
+
+[node name="itemIcon" type="Sprite2D" parent="InnerBoarder"]
+position = Vector2(70, 70)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_fe4pm")
+
+[node name="ItemQuantity" type="Label" parent="InnerBoarder"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 45.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="ItemButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b5ack")
+
+[node name="DetailsPanel" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_top = -135.0
+offset_right = 240.0
+offset_bottom = -5.0
+color = Color(0.133333, 0.0117647, 0.0352941, 1)
+
+[node name="ItemName" type="Label" parent="DetailsPanel"]
+layout_mode = 1
+offset_left = 5.0
+offset_right = 45.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 30
+text = "NAME"
+
+[node name="ItemType" type="Label" parent="DetailsPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -11.5
+offset_right = 45.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Type"
+
+[node name="ItemEffect" type="Label" parent="DetailsPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -23.0
+offset_right = 45.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+text = "Effect"
+
+[node name="UsagePanel" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_top = -193.0
+offset_right = 240.0
+offset_bottom = -3.0
+color = Color(1, 0.235294, 1, 1)
+
+[node name="UseButton" type="Button" parent="UsagePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 10.0
+offset_right = 115.0
+offset_bottom = 53.0
+grow_horizontal = 2
+text = "Use"
+
+[node name="DropButton" type="Button" parent="UsagePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -59.0
+offset_right = 115.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Drop
+"
+
+[node name="AssignButton" type="Button" parent="UsagePanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -24.5
+offset_right = 235.0
+offset_bottom = 24.5
+grow_vertical = 2
+text = "Assign"
+
+[connection signal="gui_input" from="ItemButton" to="." method="_on_item_button_gui_input"]
+[connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]
+[connection signal="mouse_exited" from="ItemButton" to="." method="_on_item_button_mouse_exited"]
+[connection signal="pressed" from="UsagePanel/UseButton" to="." method="_on_use_button_pressed"]
+[connection signal="pressed" from="UsagePanel/DropButton" to="." method="_on_drop_button_pressed"]
+[connection signal="pressed" from="UsagePanel/AssignButton" to="." method="_on_assign_button_pressed"]

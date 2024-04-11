@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://eer2dvohr3g5"]
 
 [ext_resource type="Script" path="res://mercs/warrior.gd" id="1_7kpeb"]
-[ext_resource type="Texture2D" uid="uid://btdik1dybs1ga" path="res://Assets/Warrior.jpg" id="2_0inf2"]
+[ext_resource type="Texture2D" uid="uid://btdik1dybs1ga" path="res://Assets/AI Pics/Warrior.jpg" id="2_0inf2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vakaw"]
 size = Vector2(32, 32)

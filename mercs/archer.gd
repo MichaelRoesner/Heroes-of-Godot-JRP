@@ -1,12 +1,13 @@
 extends Node2D
 
-
-@export var pAttack = 20
+@export var pAttack = 10
 @export var mAttack = 10
-@export var health = 10
+@export var health = 20
 @export var mana = 5
-@export var pDefense = 5
+@export var pDefense = 15
 @export var mDefense = 10
+@export var ActionPoints = 50
+@export var ActionPointIncrement = 50
 
 
 # Called when the node enters the scene tree for the first time.
