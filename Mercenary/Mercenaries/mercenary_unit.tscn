@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://ps2d6e68xip4"]
+
+[ext_resource type="Script" path="res://Mercenary/Mercenaries/mercenary_unit.gd" id="1_6wgc4"]
+[ext_resource type="Texture2D" uid="uid://envjpkms452y" path="res://Assets/Mercs/Player/PNG/Idle/idle-with-weapon-1.png" id="2_s7jkm"]
+[ext_resource type="Texture2D" uid="uid://v3mullnbpsyd" path="res://Assets/Mercs/Player/PNG/Idle/idle-with-weapon-2.png" id="3_w1lxa"]
+[ext_resource type="Texture2D" uid="uid://dmlbyn0eot6ly" path="res://Assets/Mercs/Player/PNG/Idle/idle-with-weapon-3.png" id="4_tsrdk"]
+[ext_resource type="Texture2D" uid="uid://181b5ur84wxp" path="res://Assets/Mercs/Player/PNG/Idle/idle-with-weapon-4.png" id="5_01qsv"]
+[ext_resource type="Texture2D" uid="uid://cq3k6bv8j68iw" path="res://Assets/Mercs/Player/PNG/Idle/idle-with-weapon-5.png" id="6_xctie"]
+[ext_resource type="Texture2D" uid="uid://djee5gli2p04d" path="res://Assets/Mercs/Player/PNG/Idle/idle-with-weapon-6.png" id="7_veap7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b4hau"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s7jkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w1lxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tsrdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_01qsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xctie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_veap7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8ddp"]
+size = Vector2(62, 61)
+
+[node name="MercenaryUnit" type="Node2D" groups=["Mercenaries"]]
+script = ExtResource("1_6wgc4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(18, 0)
+sprite_frames = SubResource("SpriteFrames_b4hau")
+animation = &"idle"
+frame_progress = 0.835835
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_c8ddp")

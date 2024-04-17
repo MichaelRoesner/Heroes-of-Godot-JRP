@@ -13,7 +13,7 @@ config_version=5
 config/name="Heroes Of Godot Jrpg"
 run/main_scene="res://MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/image="res://Assets/AI Pics/DALL·E 2024-02-24 11.09.26 - Design a logo for Heroes of Godot, a turn-based MMORPG created with the Godot Engine. The logo should incorporate fantasy and adventure themes, refl.png"
+boot_splash/image="res://Assets/AI Pics/Corgi Ent.png"
 config/icon="res://Assets/AI Pics/DALL·E 2024-02-24 11.09.26 - Design a logo for Heroes of Godot, a turn-based MMORPG created with the Godot Engine. The logo should incorporate fantasy and adventure themes, refl.png"
 
 [autoload]

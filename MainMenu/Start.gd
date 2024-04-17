@@ -11,6 +11,8 @@ func _on_pressed():
 	var instance = world_scene.instantiate()
 	get_tree().get_root().add_child(instance)
 	get_tree().set_current_scene(instance)
+	print(get_tree().current_scene)
+	print()
 	#else:
 		#print("Failed to load scene: " + scene_path)
 		#

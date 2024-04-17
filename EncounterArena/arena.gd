@@ -9,5 +9,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var local_mouse_pos = get_local_mouse_position()
-	print("Local Mouse Position: ", local_mouse_pos)
+	#var local_mouse_pos = get_local_mouse_position()
+	#print("Local Mouse Position: ", local_mouse_pos)

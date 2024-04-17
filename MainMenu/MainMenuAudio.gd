@@ -7,7 +7,7 @@ func _ready():
 
 func play_main_menu_audio():
 	var current_scene = get_tree().current_scene
-	print(current_scene)
+	print("current scene is:", current_scene)
 	if current_scene.name == "MainMenu":
 
 		var audio_player = current_scene.find_child("AudioStreamPlayer", true, false)
